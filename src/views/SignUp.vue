@@ -120,7 +120,21 @@
             <div class="btn-gradient"></div>
           </button>
 
-          <transition name="fade">
+          <div class="divider">
+            <span> Already have an account?</span>
+          </div>
+
+          <button
+          type="submit"
+            class="btn-primary"
+            :disabled="isExistingUser"
+            :class="{ 'btn-disabled': isExistingUser }"
+          >
+            <router-link to="/login" class="btn-texts">login</router-link>
+            <!-- <div class="btn-gradient"></div> -->
+          </button>
+      
+          <!-- <transition name="fade">
             <button
               v-if="isExistingUser"
               type="button"
@@ -128,12 +142,12 @@
               @click="goToLogin"
             >
               <span>Already have an account? Sign In</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <svg viewBox="0 0 24 24" fill="block" stroke="currentColor" stroke-width="2">
                 <path d="M5 12h14"/>
                 <path d="M12 5l7 7-7 7"/>
               </svg>
             </button>
-          </transition>
+          </transition> -->
         </div>
       </form>
 
@@ -237,7 +251,10 @@ export default {
   left: -150px;
   animation-delay: 0s;
 }
-
+.btn-texts{
+  text-decoration: none;
+  color: white;
+}
 .shape-2 {
   width: 200px;
   height: 200px;
